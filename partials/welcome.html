@@ -2,17 +2,31 @@
 	<h1>Welcome Flickr Users</h1>
 	<div class="row">
 		<button type="submit" ng-click='getImages()'>Grab Images here</button>
-		<div class="projects">
-			<div class="row">
-				<div class="span3" ng-repeat='project in result.projects'>
-					<div class="project card">
-						<p>{{project.genre}}</p>
-						<p>{{project.title}}</p>
-						<img ng-src="{{project.thumb}}" alt="Thumb">
-					</div>
-				</div>
-			</div>
-		</div>
+		<div>
+	    <ul class="thumbnails projects">
+	      <li class="shot span3 " ng-repeat="project in result.projects">
+	        <div class="thumbnail">
+	          <a href="#/projects/{{project.id}}">
+	            <img ng-src="{{project.thumb}}">
+	          </a>
+	          <strong class="title">{{project.title}}</strong>
+	          <a class="player" href="#/players/{{project.player.username}}">
+	            {{project.genre}}
+	          </a>
+	          <div class="stats">
+	            <span class="stat">
+	              <i class="icon-eye-open"></i>
+	              {{ project.id }}
+	            </span>
+	            <span class="stat">
+	              <i class="icon-comment"></i>
+	              {{ project.comments_count }}
+	            </span>
+	          </div>
+	        </div>
+	      </li>
+	    </ul>
+	</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-12">
